@@ -68,26 +68,60 @@ module.exports = {
     }
   },
 
-
   //Delete a Thought
 
   async deleteThought(req, res) {
     try {
-        const thought = await Thought.findOneAndDelete({_id: req.params.thoughtId });
+      const thought = await Thought.findOneAndDelete({
+        _id: req.params.thoughtId,
+      });
 
-        if (!thought) {
-            res.status(404).json({ message: 'No thought with that ID' });
-        }
-        const user = await User.findOneAndUpdate({username: thought.username},{$pull:{thoughts: thought._id}}, { runValidators: true, new: true })
+      if (!thought) {
+        res.status(404).json({ message: "No thought with that ID" });
+      }
+      const user = await User.findOneAndUpdate(
+        { username: thought.username },
+        { $pull: { thoughts: thought._id } },
+        { runValidators: true, new: true }
+      );
 
-        if (!user) {
-            res.status(404).json({ message: 'No user with that ID found' });
-        }
-        res.json({message: 'Thought succesfully deleted'});
-        
+      if (!user) {
+        res.status(404).json({ message: "No user with that ID found" });
+      }
+      res.json({ message: "Thought succesfully deleted" });
+    } catch (err) {
+      res.status(500).json(err);
     }
-    catch (err) {
-        res.status(500).json(err);
-    }
-  }
+  },
+  //add reaction
+  addReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $addToSet: { reactions: req.body } },
+      { runValidators: true, new: true }
+    )
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: "No thought with this id!" })
+          : res.json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
+
+  // delete  reactions
+  removeReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { runValidators: true, new: true }
+    )
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: "No thought with this id!" })
+          : res.json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
 };
+
+// module.exports = thoughtController;
