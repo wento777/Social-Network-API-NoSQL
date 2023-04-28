@@ -110,6 +110,9 @@ node index.js
 
   # Team-Profile-Generator-OOP Screenshots
   
+
+  # A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
+
   
 
  
