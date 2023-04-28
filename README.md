@@ -109,12 +109,16 @@ node index.js
 
 
   # Team-Profile-Generator-OOP Screenshots
-  
+  ![Screenshot (27)](https://user-images.githubusercontent.com/70625665/235055852-2c09294a-f894-4a12-b8bd-b4d68e03386f.png)
+![Screenshot (28)](https://user-images.githubusercontent.com/70625665/235055880-26ebda7c-3ea8-4a1f-b21c-265b1664ecee.png)
+![Screenshot (69)](https://user-images.githubusercontent.com/70625665/235055936-362122da-a861-4560-8a9a-e2084f1220dd.png)
+![Screenshot (70)](https://user-images.githubusercontent.com/70625665/235055958-e6a17b21-3be0-489f-9930-9b941f58c013.png)
+
 
   # A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
 
   
-
+https://watch.screencastify.com/v/DKEvMB3U3sgfynVOP12b
  
 
 
