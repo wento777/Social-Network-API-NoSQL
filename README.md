@@ -105,7 +105,7 @@ node index.js
 
   # This project has been deployed to GitHub, here is the link:
 
-  * 
+  * https://github.com/wento777/Social-Network-API-NoSQL
 
 
   # Team-Profile-Generator-OOP Screenshots
